@@ -6,4 +6,7 @@ export class Employee extends Person{
         this.soNgayLamViec = soNgayLamViec;
         this.luongTheoNgay = luongTheoNgay;
     }
+    tinhLuong(){
+        return (this.soNgayLamViec * this.luongTheoNgay);
+    }
 }

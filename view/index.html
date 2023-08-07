@@ -26,7 +26,7 @@
   </head>
   <body>
     <div class="container">
-      <h2>QUẢN LÝ HỌC VIỆN NGHIÊN CỨU VÀ GIẢNG DẠY</h2>
+      <h2 style="text-align: center; color: rgb(245, 48, 48); font-size: 40px; font-weight: bold;padding-top: 20px;">QUẢN LÝ HỌC VIỆN NGHIÊN CỨU VÀ GIẢNG DẠY</h2>
       <!-- Phan tab menu -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -36,7 +36,7 @@
             role="tab"
             data-toggle="tab"
             style="font-weight: 800"
-            >Manager</a
+            >Quản Lý</a
           >
         </li>
       </ul>
@@ -72,7 +72,7 @@
               <!-- BEGIN BUTTOM THÊM MỚI -->
               <button
                 id="btnAddUser"
-                class="btn btn-primary"
+                class="btn btn-success"
                 data-toggle="modal"
                 data-target="#myModal" onclick="buttonAddUser()"
               >
@@ -147,7 +147,7 @@
                   class="form-control"
                   placeholder="Nhập id của đối tượng"
                 />
-                <!-- validation Name -->
+                <!-- validation ID -->
                 <div
                   class="text-danger"
                   style="display: none"
@@ -203,46 +203,76 @@
                 <option value="Employee">Giảng Viên</option>
                 <option value="Customer">Khách Hàng</option>
               </select>
+              <div
+                  class="text-danger"
+                  style="display: block"
+                  id="errorDoiTuong"
+                ></div>
               <br>
               <div class="form-group" id="formdiemToan">
                 <label for="">Điểm Toán</label>
                 <input
-                  type="number" id="diemToan"
+                  type="text" id="diemToan"
                   class="form-control"
-                  aria-describedby="helpId" placeholder="Nhập điểm toán của đối tượng"
+                  aria-describedby="helpId" placeholder="Nhập điểm toán"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorDiemToan"
+                ></div>
               </div>
               <div class="form-group" id="formdiemLy">
                 <label for="">Điểm Lý</label>
                 <input
-                  type="number" id="diemLy"
+                  type="text" id="diemLy"
                   class="form-control"
-                  aria-describedby="helpId" placeholder="Nhập điểm lý của đối tượng"
+                  aria-describedby="helpId" placeholder="Nhập điểm lý"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorDiemLy"
+                ></div>
               </div>
               <div class="form-group" id="formdiemHoa">
                 <label for="">Điểm Hóa</label>
                 <input
-                  type="number" id="diemHoa"
+                  type="text" id="diemHoa"
                   class="form-control"
-                  aria-describedby="helpId" placeholder="Nhập điểm hóa của đối tượng"
+                  aria-describedby="helpId" placeholder="Nhập điểm hóa"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorDiemHoa"
+                ></div>
               </div>
               <div class="form-group" id="formSoNgayLamViec">
                 <label for="">Số Ngày Làm Việc</label>
                 <input
-                  type="number" id="soNgayLamViec"
+                  type="text" id="soNgayLamViec"
                   class="form-control"
-                  aria-describedby="helpId" placeholder="Nhập số ngày làm việc của đối tượng"
+                  aria-describedby="helpId" placeholder="Nhập số ngày làm việc"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorSoNgayLamViec"
+                ></div>
               </div>
               <div class="form-group" id="formLuongTheoNgay">
                 <label for="">Lương Theo Ngày</label>
                 <input
-                  type="number" id="luongTheoNgay"
+                  type="text" id="luongTheoNgay"
                   class="form-control"
                   aria-describedby="helpId" placeholder="Nhập lương theo ngày của đối tượng"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorLuongTheoNgay"
+                ></div>
               </div>
               <div class="form-group" id="formTenCongTy">
                 <label for="">Tên Công Ty</label>
@@ -251,14 +281,24 @@
                   class="form-control"
                   aria-describedby="helpId" placeholder="Nhập tên công ty"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorTenCongTy"
+                ></div>
               </div>
               <div class="form-group" id="formTriGiaHoaDon">
                 <label for="">Trị Giá Hóa Đơn</label>
                 <input
-                  type="number" id="triGiaHoaDon"
+                  type="text" id="triGiaHoaDon"
                   class="form-control"
                   aria-describedby="helpId" placeholder="Nhập Trị Giá Hóa Đơn"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorTriGiaHoaDon"
+                ></div>
               </div>
               <div class="form-group" id="formDanhGia">
                 <label for="">Đánh Giá</label>
@@ -267,6 +307,11 @@
                   class="form-control"
                   aria-describedby="helpId" placeholder="Nhập đánh giá"
                 />
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorDanhGia"
+                ></div>
               </div>
             </div>
             <!-- Modal footer -->
