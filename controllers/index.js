@@ -193,7 +193,7 @@ window.layThongTinSinhVien = (isAdd) => {
       diemLy,
       diemHoa
     );
-    let DTB = sinhVien.tinhDiemTrungBinh();
+    const DTB = sinhVien.tinhDiemTrungBinh();
     sinhVien.diemTrungBinh = DTB;
     return sinhVien;
   }
@@ -298,7 +298,7 @@ window.layThongTinGiangVien = (isAdd) => {
       soNgayLamViec,
       luongTheoNgay
     );
-    let tinhLuong = giangVien.tinhLuong();
+    const tinhLuong = giangVien.tinhLuong();
     giangVien.tienLuong = tinhLuong;
     return giangVien;
   }
@@ -687,7 +687,7 @@ const renderTable = (data = listPerson.listUser) => {
             <td>${element.diaChi}</td>
             <td>${element.email}</td>
             <td>${element.type}</td>
-            <td>Tên Công Ty: ${element.tenCongTy}, Trị Giá Hóa Đơn: ${element.triGiaHoaDon}, Đánh Giá: ${element.danhGia}</td>
+            <td>Tên Công Ty: ${element.tenCongTy}, Trị Giá Hóa Đơn: ${numberFormat.format(element.triGiaHoaDon)}đ, Đánh Giá: ${element.danhGia}</td>
             <td>
               <button class ='btn btn-primary' data-toggle="modal" data-target="#myModal" onclick = "editUser('${element.id}')">Sửa</button>
               <button onclick="deleteUser('${element.id}')" class ='btn btn-danger'>Xóa</button>
@@ -713,8 +713,7 @@ window.deleteUser = (id) => {
 window.sortName = () => {
   const sort = domId("mySelect2").value;
   if (sort === "aToZ") {
-    let listHoTen = listPerson.listUser;
-    listHoTen.sort((a, b) => {
+    listPerson.listUser.sort((a, b) => {
       if (
         a.hoTen.split(" ").pop().toLowerCase() <
         b.hoTen.split(" ").pop().toLowerCase()
@@ -729,10 +728,9 @@ window.sortName = () => {
       }
       return 0;
     });
-    renderTable(listHoTen);
+    renderTable(listPerson.listUser);
   } else if (sort === "zToA") {
-    let listHoTen = listPerson.listUser;
-    listHoTen.sort((a, b) => {
+    listPerson.listUser.sort((a, b) => {
       if (
         a.hoTen.split(" ").pop().toLowerCase() <
         b.hoTen.split(" ").pop().toLowerCase()
@@ -747,7 +745,7 @@ window.sortName = () => {
       }
       return 0;
     });
-    renderTable(listHoTen);
+    renderTable(listPerson.listUser);
   } else {
     //lấy data dưới localStrorage để render lại bảng ban đầu
     getLocalStorage();
@@ -858,7 +856,6 @@ const checkClickID = () => {
 const checkHoTen = domId("hoTen");
 if (checkHoTen) {
   checkHoTen.addEventListener("click", () => {
-    console.log(123);
     domId("hoTen").addEventListener("keyup", checkClickHoTen);
   });
 }
